@@ -53,7 +53,7 @@ There're a few functions.
 ```pawn
 Kick(playerid)
 ```  
-Very famous functions, already known.
+Very famous function, already known.
 ```pawn
 KickEx(playerid, string: reason[], bool:usecallback=false)  
 ```  
