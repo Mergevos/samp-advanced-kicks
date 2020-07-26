@@ -48,6 +48,34 @@ the source code, direct users there. If not, list your API and describe it well
 in this section. If your library is passive and has no API, simply omit this
 section.
 -->
+To use this include, simply include it. There's no need for fixing kick and SendClientMessage(etc...) due to its problems.
+There're a few functions. 
+```pawn
+Kick(playerid)
+```  
+Very famous functions, already known.
+```pawn
+KickEx(playerid, string: reason[], bool:usecallback=false)  
+```  
+Sister function of famous Kick. You may now kick with reason, that's going to be send like a message  
+```pawn
+AdvancedKick(playerid, targetid, string: reason[], time);  
+```  
+This function will check whether the playerid or targetid are connected, returning a `OnPlayerKicked` callback. Allowing you to choose interval after which will player get kicked.  
+```pawn
+public OnlayerKicked(playerid, kickerid, string: reason[], time, responselevel)
+```  
+Allows player to choose and create their own response if the either player or target's not connected  
+
+```pawn 
+enum {
+	KICK_SUCCESS = 1, // Kick's successful  
+	KICK_KICKEROFFLINE, // Player offline, target id not player id  
+	KICK_TARGETOFFLINE // Target offline, player id not kicker id  
+}
+```
+Theese're the response levels used by a responselevel param in OnPlayerKicked callback
+
 
 ## Testing
 
