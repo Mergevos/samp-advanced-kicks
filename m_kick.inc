@@ -1,3 +1,11 @@
+/*
+	* Library: Samp Advanced Kick (m_kicks.inc)
+	* Author: Mergevos
+	* Date: 27. July 2020.
+	* Copyright: (C) 2020
+*/
+
+
 #if defined ___@MERGEVOS_KICK_INC
 	#endinput
 #endif
@@ -11,7 +19,7 @@
 // --
 // <summary>Forwards callback OnPlayerKicked</summary>
 // --
-forward OnPlayerKicked(playerid, kickerid, reason[], time, responselevel);
+forward OnPlayerKicked(playerid, kickerid, string: reason[], time, responselevel);
 
 enum {
 	KICK_SUCCESS = 1,
@@ -73,8 +81,8 @@ stock AdvancedKick(const playerid, const kickerid, const reason[], const time)
 // --
 // <params>Handles before kicking event</params>
 // --
-forward before_OnPlayerKicked(playerid, kickerid, reason[], time, responselevel);
-public before_OnPlayerKicked(playerid, kickerid, reason[], time, responselevel) 
+forward before_OnPlayerKicked(const playerid, const kickerid, reason[], const time, const responselevel);
+public before_OnPlayerKicked(const playerid, const kickerid, reason[], const time, const responselevel) 
 {
 	new tmpstrrsn[144];
 	format(tmpstrrsn, sizeof(tmpstrrsn), "%s", reason);
