@@ -29,13 +29,18 @@ public OnPlayerCommandText(playerid, cmdtext[])
     }
     if(!strcmp(cmdtext, "/testadvanced", true)) {
         SendClientMessage(playerid, -1, "Does this work?");
-        AdvancedKick(playerid, playerid, "Znjrizon", 6000);
+        AdvancedKick(playerid, playerid, "Znjrizon", 60000);
+        return 1;
+    }
+    if(!strcmp(cmdtext, "/testadvanced0", true)) {
+        SendClientMessage(playerid, -1, "Does this work?");
+        AdvancedKick(playerid, playerid, "Znjrizon", 0);
         return 1;
     }
     return 0;
 }
 
-public OnPlayerKicked(playerid, kickerid, reason[], time, responselevel)
+public OnPlayerKicked(playerid, kickerid, string: reason[], time, responselevel)
 {
     if(responselevel == KICK_KICKEROFFLINE) {
         printf("Igrac: %d, nije kikovan od jer je nekonektovan kiker %d, razlog: %s, time: %d", playerid, kickerid, reason, time);
