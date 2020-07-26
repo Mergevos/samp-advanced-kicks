@@ -1,6 +1,6 @@
 {
 	"user": "Mergevos",
-	"repo": "samp-delayed-kick",
+	"repo": "samp-advanced-kicks",
 	"entry": "test.pwn",
 	"output": "test.amx",
 	"dependencies": [
