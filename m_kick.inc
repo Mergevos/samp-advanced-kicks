@@ -1,20 +1,18 @@
 /*
-	* Library: Samp Advanced Kick (m_kicks.inc)
+	* Library: Samp Advanced Kick (advanced_kicks.inc)
 	* Author: Mergevos
 	* Date: 27. July 2020.
 	* Copyright: (C) 2020
 */
 
 
-#if defined ___@MERGEVOS_KICK_INC
+#if defined ___@ADVANCED_KICK_INC
 	#endinput
 #endif
 
-#define ___@MERGEVOS_KICK_INC
+#define ___@ADVANCED_KICK_INC
 
-#if !defined _INC_a_samp
-	#tryinclude < a_samp >
-#endif
+#include < a_samp >
 
 // --
 // <summary>Forwards callback OnPlayerKicked</summary>
@@ -30,17 +28,17 @@ enum {
 // --
 // <summary> Defers the timer used to kick a players</summary>
 // --
-stock _0mergevos_KickFromInc_Mergevos(const playerid)
+stock AK_Kick(const playerid)
 {
-    SetTimerEx("_0mergevos_KickFtimInc_Mergevos", 70, false, "i", playerid);
+    SetTimerEx("AK_CallKick", 70, false, "i", playerid);
     return 1;
 }
 
 // --
 // <summary> Kicks the particular player after the timer's finished</summary>
 // --
-forward _0mergevos_KickFtimInc_Mergevos(const playerid);
-public _0mergevos_KickFtimInc_Mergevos(const playerid)
+forward AK_CallKick(const playerid);
+public AK_CallKick(const playerid)
 {
     return Kick(playerid);
 }
@@ -51,7 +49,7 @@ public _0mergevos_KickFtimInc_Mergevos(const playerid)
 stock KickEx(const playerid, const reason[], bool:usecallback=false)
 {
 	SendClientMessage(playerid, -1, reason);
-	_0mergevos_KickFromInc_Mergevos(playerid);
+	AK_Kick(playerid);
 	if(usecallback) {
 		CallLocalFunction("OnPlayerKicked", "iisii", playerid, -1, reason, 0, KICK_SUCCESS);
 	}
@@ -97,4 +95,4 @@ public before_OnPlayerKicked(const playerid, const kickerid, reason[], const tim
 #else 
 #define _ALS_Kick
 #endif 
-#define Kick _0mergevos_KickFromInc_Mergevos 
+#define Kick AK_Kick 
