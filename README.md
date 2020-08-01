@@ -1,6 +1,6 @@
 # samp-delayed-kick
 
-[![sampctl](https://img.shields.io/badge/sampctl-samp--advanced--kick-2f2f2f.svg?style=for-the-badge)](https://github.com/Mergevos/samp-advanced-kicks)
+[![sampctl](https://img.shields.io/badge/sampctl-samp--advanced--kicks-2f2f2f.svg?style=for-the-badge)](https://github.com/Mergevos/samp-advanced-kicks)
 
 <!--
 Short description of your library, why it's useful, some examples, pictures or
@@ -31,13 +31,13 @@ Happy Pawning!
 Simply install to your project:
 
 ```bash
-sampctl package install Mergevos/samp-advanced-kick
+sampctl package install Mergevos/samp-advanced-kicks
 ```
 
 Include in your code and begin using the library:
 
 ```pawn
-#include <m_kicks>
+#include < advanced_kicks >
 ```
 
 ## Usage
