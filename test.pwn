@@ -1,6 +1,6 @@
 #include < a_samp >
 #define YSI_YES_HEAP_MALLOC
-#include < m_kick >
+#include < advanced_kicks >
 
 main() {}
 
