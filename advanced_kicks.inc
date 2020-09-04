@@ -3,6 +3,8 @@
 	* Author: Mergevos
 	* Date: 27. July 2020.
 	* Copyright: (C) 2020
+	* Credits: 
+		IllidanS4 - PawnPlus
 */
 
 
