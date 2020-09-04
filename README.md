@@ -39,6 +39,9 @@ Include in your code and begin using the library:
 ```pawn
 #include < advanced_kicks >
 ```
+## Dependencies
+
+IllidanS4 - PawnPlus
 
 ## Usage
 
