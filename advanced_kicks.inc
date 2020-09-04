@@ -14,6 +14,8 @@
 
 #include < a_samp >
 
+#include < PawnPlus >
+
 // --
 // <summary>Forwards callback OnPlayerKicked</summary>
 // --
@@ -30,17 +32,9 @@ enum {
 // --
 stock AK_Kick(const playerid)
 {
-    SetTimerEx("AK_CallKick", 70, false, "i", playerid);
+    wait_ms(200);
+	Kick(playerid);
     return 1;
-}
-
-// --
-// <summary> Kicks the particular player after the timer's finished</summary>
-// --
-forward AK_CallKick(const playerid);
-public AK_CallKick(const playerid)
-{
-    return Kick(playerid);
 }
 
 // --
@@ -68,7 +62,9 @@ stock AdvancedKick(const playerid, const kickerid, const reason[], const time)
 		return CallLocalFunction("OnPlayerKicked", "iisii", playerid, kickerid, reason, time, KICK_KICKEROFFLINE);
 	}
 	if(time != 0) {
-		SetTimerEx("before_OnPlayerKicked", time, false, "iisii", playerid, kickerid, reason, time, KICK_SUCCESS);
+		wait_ms(time);
+		CallLocalFunction("OnPlayerKicked", "iisii", playerid, kickerid, reason, time, KICK_SUCCESS);
+		KickEx(playerid, reason, true);
 	}
 	else {
 		return Kick(playerid);
@@ -76,19 +72,10 @@ stock AdvancedKick(const playerid, const kickerid, const reason[], const time)
 	return KICK_SUCCESS;
 }
 
+
 // --
-// <params>Handles before kicking event</params>
+// ALS
 // --
-forward before_OnPlayerKicked(const playerid, const kickerid, reason[], const time, const responselevel);
-public before_OnPlayerKicked(const playerid, const kickerid, reason[], const time, const responselevel) 
-{
-	new tmpstrrsn[144];
-	format(tmpstrrsn, sizeof(tmpstrrsn), "%s", reason);
-	SendClientMessage(playerid, -1, reason);
-	CallLocalFunction("OnPlayerKicked", "iisii", playerid, kickerid, tmpstrrsn, time, responselevel);
-	KickEx(playerid, tmpstrrsn, false);
-	strdel(tmpstrrsn, 0, strlen(tmpstrrsn));	
-}
 
 #if defined _ALS_Kick 
   #undef Kick
