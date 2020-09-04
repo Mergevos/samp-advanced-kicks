@@ -3,5 +3,5 @@
 // To update the version number for a new release, run "sampctl package release"
 
 #define SAMP_ADVANCED_KICKS_VERSION_MAJOR (1)
-#define SAMP_ADVANCED_KICKS_VERSION_MINOR (0)
-#define SAMP_ADVANCED_KICKS_VERSION_PATCH (3)
+#define SAMP_ADVANCED_KICKS_VERSION_MINOR (1)
+#define SAMP_ADVANCED_KICKS_VERSION_PATCH (0)
