@@ -1,7 +1,7 @@
 {
 	"user": "Mergevos",
 	"repo": "samp-advanced-kicks",
-	"tag": "1.1.0",
+	"tag": "1.1.1",
 	"entry": "test.pwn",
 	"output": "test.amx",
 	"dependencies": [
