@@ -39,9 +39,6 @@ Include in your code and begin using the library:
 ```pawn
 #include < advanced_kicks >
 ```
-## Dependencies
-
-IllidanS4 - PawnPlus
 
 ## Usage
 
@@ -68,9 +65,13 @@ This function will check whether the playerid or targetid are connected, returni
 ```pawn
 public OnlayerKicked(playerid, kickerid, string: reason[], time, responselevel)
 ```  
-Allows player to choose and create their own response if the either player or target's not connected  
+Allows player to choose and create their own response if the either player or target's not connected and their time which will be added on player's ping  
 
 ```pawn 
+##if !defined KICK_ON_PING_TIME
+	#define KICK_ON_PING_TIME 10
+#endif 
+
 enum {
 	KICK_SUCCESS = 1, // Kick's successful  
 	KICK_KICKEROFFLINE, // Player offline, target id not player id  
