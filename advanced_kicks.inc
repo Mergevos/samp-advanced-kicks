@@ -18,6 +18,10 @@
 
 #include < PawnPlus >
 
+#if !defined KICK_ON_PING_TIME
+	#define KICK_ON_PING_TIME 10
+#endif 
+
 // --
 // <summary>Forwards callback OnPlayerKicked</summary>
 // --
@@ -34,7 +38,7 @@ enum {
 // --
 stock AK_Kick(const playerid)
 {
-    wait_ms(200);
+    wait_ms(GetPlayerPing(playerid) + KICK_ON_PING_TIME);
 	Kick(playerid);
     return 1;
 }
